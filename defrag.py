@@ -38,7 +38,7 @@ def main():
                 defragged.append(f)
         fragments = [f for f in fragments if f not in defragged]
         for df in defragged:
-            print 'boo'
+            print 'Defragmented packet.'
             writer.write(df)
 
 if __name__ == '__main__':

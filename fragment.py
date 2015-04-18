@@ -26,8 +26,8 @@ def main():
     for pkt_data in reader:
         p = Ether(pkt_data[0])
         if isinstance(p[1], IP) and len(p[2]) > args.fragment_size and p[1].flags & 2 != 0:
-            print 'boo'
             p = fragment(p, args.fragment_size)
+            print 'Fragmented packet into {} fragments.'.format(len(p))
 
         writer.write(p)
 
